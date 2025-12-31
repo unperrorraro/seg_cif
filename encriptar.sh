@@ -44,9 +44,11 @@ find "$DIR" -type f ! -path "$DIR/encrypted/*" ! -path "$DIR/mac/*" | while read
   mkdir -p "$(dirname "$ENC_PATH")" "$(dirname "$MAC_PATH")"
   # Cifrar
   openssl enc -aes-256-cbc -pbkdf2 -salt -in "$FILE" -out "$ENC_PATH" -pass file:"$KEY_ENC"
+  chmod 400 "$ENC_PATH"
 
   # MAC
   openssl dgst -sha256 -mac HMAC -macopt hexkey:"$KEY_HMAC_HEX" "$ENC_PATH" >"$MAC_PATH"
+  chmod 400 "$MAC_PATH"
 done
 
 echo "FIN"
