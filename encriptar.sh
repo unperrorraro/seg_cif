@@ -3,6 +3,11 @@
 DIR="$1"
 ST_DIR="$2"
 
+echo "USAGE: ./encriptar.sh directorio_encriptar almacenamiento_claves"
+
+echo ""
+echo "Los archivos se guardan en ./out"
+
 if [ ! -d "$ST_DIR" ]; then
   echo "No se encontró el almacenamiento de claves en $ST_DIR"
   exit 1

@@ -3,6 +3,10 @@
 DIR="$1"
 ST_DIR="$2"
 
+echo "USAGE: ./desencriptar.sh directorio_encriptado almacenamiento_claves"
+echo ""
+echo "Los archivos se guardan en ./directoio_encriptado/decrypted"
+echo ""
 KEY_ENC="$ST_DIR/key_enc.bin"
 KEY_MAC="$ST_DIR/key_hmac.bin"
 KEY_MAC_HEX=$(xxd -p "$KEY_MAC" | tr -d '\n')
